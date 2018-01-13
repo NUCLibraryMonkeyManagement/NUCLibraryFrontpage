@@ -1,15 +1,14 @@
-// Chart.js scripts
-// -- Set new default font family and font color to mimic Bootstrap's default styling
+
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
-// -- Area Chart Example
+// -- 折线图
 var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
+var myAreaChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
     datasets: [{
-      label: "Sessions",
+      label: "数据",
       lineTension: 0.3,
       backgroundColor: "rgba(2,117,216,0.2)",
       borderColor: "rgba(2,117,216,1)",
@@ -20,7 +19,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 20,
       pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+      data: [10, 30162, 26263, 18394, 18287, 28682, 31274, 259, 25849, 24159, 32651, 31984, 31],
     }],
   },
   options: {
@@ -54,15 +53,15 @@ var myLineChart = new Chart(ctx, {
 });
 // -- Bar Chart Example
 var ctx = document.getElementById("myBarChart");
-var myLineChart = new Chart(ctx, {
+var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["5楼东", "5楼西", "6楼东", "6楼西", "7楼东", "7楼西"],
     datasets: [{
-      label: "Revenue",
+      label: "人数",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: [50, 52, 105, 95, 10, 18],
     }],
   },
   options: {
@@ -81,7 +80,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 150,
           maxTicksLimit: 5
         },
         gridLines: {
@@ -94,14 +93,56 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+var ctx2 = document.getElementById("myBarChart2");
+var myBarChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ["5楼东", "5楼西", "6楼东", "6楼西", "7楼东", "7楼西"],
+        datasets: [{
+            label: "人数",
+            backgroundColor: "rgba(2,117,216,1)",
+            borderColor: "rgba(2,117,216,1)",
+            data: [50, 52, 105, 95, 10, 18],
+        }],
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 6
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 150,
+                    maxTicksLimit: 5
+                },
+                gridLines: {
+                    display: true
+                }
+            }],
+        },
+        legend: {
+            display: false
+        }
+    }
+});
 // -- Pie Chart Example
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
+    labels: ["B", "Red", "Yellow", "Green"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
+      data: [144, 112, 133, 11],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
