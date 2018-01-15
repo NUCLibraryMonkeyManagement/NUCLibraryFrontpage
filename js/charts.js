@@ -12,7 +12,7 @@ var myBarChart = new Chart(ctx, {
       label: "人数",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [50, 52, 105, 95, 10, 18],
+      data: [1, 52, 105, 95, 10, 18],
     }],
   },
   options: {
@@ -31,7 +31,7 @@ var myBarChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 150,
+          max: 200,
           maxTicksLimit: 5
         },
         gridLines: {
