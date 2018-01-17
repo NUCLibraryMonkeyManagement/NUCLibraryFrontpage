@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>软件学院页面</title>
+    <!-- Bootstrap core CSS-->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="../css/admin.css" rel="stylesheet">
+
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- 左侧导航条 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="#">软件学院</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="../LibrarySys/dashboardAdmin.html">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <span class="nav-link-text">主页</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                <a class="nav-link" href="#allSchool">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">软件学院学生自习信息</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-github"></i>
+                    <span class="nav-link-text">Github</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>点我注销</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- 折线图 -->
+        <div class="card mb-3" id="allSchool">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i> 软件学院学生一周自习情况
+            </div>
+            <div class="card-body">
+                <canvas id="areaChart" width="100%" height="30"></canvas>
+            </div>
+            <div class="card-footer small text-muted">状态更新可能有延迟</div>
+        </div>
+        <!-- 所有学生 -->
+        <div class="card mb-3" id="allStu">
+            <div class="card-header">
+                <i class="fa fa-table"></i> 所有学生信用分数
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>学院</th>
+                            <th>信用分数</th>
+                            <th>本学期自习总时间段</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>学院</th>
+                            <th>信用分数</th>
+                            <th>本学期自习总时间段</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr>
+                            <td>1514010716</td>
+                            <td>王一疆</td>
+                            <td>软件学院</td>
+                            <td>100</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>1514011414</td>
+                            <td>岳强</td>
+                            <td>软件学院</td>
+                            <td>100</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>1514010634</td>
+                            <td>李晓津</td>
+                            <td>软件学院</td>
+                            <td>100</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>1514010635</td>
+                            <td>吴亚斌</td>
+                            <td>软件学院</td>
+                            <td>100</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>1514010828</td>
+                            <td>李超维</td>
+                            <td>软件学院</td>
+                            <td>100</td>
+                            <td>19</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">每学期信用分数会重置至100</div>
+        </div>
+
+        <div class="row" id="Detail">
+            <div class="col-lg-8">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bar-chart"></i> 各方向自习情况
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <canvas id="barChart" width="100" height="50"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer small text-muted">每周状态，状态更新可能有延迟</div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!--软件学院-->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-pie-chart"> 各年级自习人数</i>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="pie" width="100%" height="100"></canvas>
+                    </div>
+                    <div class="card-footer small text-muted">每周状态，状态更新可能有延迟</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4" id="Soft">
+                <!--软件学院-->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-pie-chart"> 各年级当前学期平均自习时间</i>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="doughnutAve" width="100%" height="100"></canvas>
+                    </div>
+                    <div class="card-footer small text-muted">状态更新可能有延迟。数据为各年级统计的时间段总数除以各年级人数</div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bar-chart"></i> 各方向当前学期平均自习时间
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <canvas id="barChartAve" width="100" height="50"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer small text-muted">状态更新可能有延迟，数据为各方向统计的时间段总数除以各方向人数</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright © 图书馆猴子 2017</small>
+                </div>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">要注销吗？</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">点击注销将会退出登录</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">我不要注销</button>
+                        <a class="btn btn-primary" href="login.html">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="../vendor/chart.js/Chart.min.js"></script>
+        <script src="../vendor/datatables/jquery.dataTables.js"></script>
+        <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../js/admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="../js/admin-datatables.min.js"></script>
+        <script src="../js/detailChart/chartsSoft.js"></script>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

@@ -99,5 +99,18 @@ var myPieChart = new Chart(ctx, {
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745',
           'cyan', '#1d2124', '#005cbf', '#b1dfbb', '#ffff00', '#e83e8c'],
     }],
-  },
+    options: {
+            //Boolean - 是否执行动画
+            animation : true,
+            //Number - 动画时间
+            animationSteps : 100,
+            //String - 动画的效果
+            animationEasing : "easeOutBounce",
+            //Boolean -是否旋转动画
+            animateRotate : true,
+            //Boolean - 是否动画缩放饼图中心
+            animateScale : true,
+        }
+
+  }
 });

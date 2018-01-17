@@ -1,21 +1,21 @@
 var firstSeatLabel = 1;
-
+var num;
 $(document).ready(function() {
     var $cart = $('#selected-seats'),
         $counter = $('#counter'),
         $total = $('#total'),
         sc = $('#seat-map').seatCharts({
             map: [
-                'ee_eeee_ee',
-                '__________',
-                'ee_eeee_ee',
-                'ee_eeee_ee',
-                '__________',
-                'ee_eeee_ee',
-                'ee_eeee_ee',
-                '__________',
-                'ee_eeee_ee',
-                'ee_eeee_ee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
+                'eeeeeeeeee',
             ],
             seats: {
                 e: {
@@ -47,8 +47,7 @@ $(document).ready(function() {
                         .appendTo($cart);
                     $counter.text(sc.find('selected').length+1);
                     $total.text(recalculateTotal(sc)+this.data().price);
-
-
+                    num = this.settings.label;
                     return 'selected';
                 } else if (this.status() == 'selected') {
                     //更新计数器
@@ -76,14 +75,13 @@ $(document).ready(function() {
     });
 
     //已经被预约的座位
-    sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+    sc.get(['1_2', '4_1', '7_1', '7_7']).status('unavailable');
 
 });
 
 function recalculateTotal(sc) {
     var total = 0;
 
-    //basically find every selected seat and sum its price
     sc.find('selected').each(function () {
         total += this.data().price;
     });
@@ -91,6 +89,14 @@ function recalculateTotal(sc) {
     return total;
 }
 //提交
+
 function update() {
+
+    var a = parseInt(num/8+1);
+    var b = num%8;
+    var str = a+"_"+b
+    alert(str);
+    sc.get(str).status('unavailable');
+    alert("选座成功");
 
 }
