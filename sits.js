@@ -1,21 +1,23 @@
 var firstSeatLabel = 1;
 var num;
+var sc;
+var a,b;
 $(document).ready(function() {
     var $cart = $('#selected-seats'),
         $counter = $('#counter'),
-        $total = $('#total'),
+        $total = $('#total');
         sc = $('#seat-map').seatCharts({
             map: [
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
-                'eeeeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
+                'eeeeeeee',
             ],
             seats: {
                 e: {
@@ -40,7 +42,13 @@ $(document).ready(function() {
             },
             click: function () {
                 if (this.status() == 'available') {
-                    if (parseInt($total.text())) { alert('只能选一个座位。再次点击已选择的座位或者点击右侧的取消预约来取消选择');return 'available';}
+                    if (parseInt($total.text())) {
+                        alert('只能选一个座位。再次点击已选择的座位或者点击右侧的取消预约来取消选择');
+                        return 'available';
+                    }else if(sessionStorage.obj){
+                        alert('已经选过座位');
+                        return 'available';
+                    }
                     $('<li>'+this.data().category+this.settings.label+'</b> <a href="#" class="cancel-cart-item">[取消预约]</a></li>')
                         .attr('id', 'cart-item-'+this.settings.id)
                         .data('seatId', this.settings.id)
@@ -73,30 +81,30 @@ $(document).ready(function() {
     $('#selected-seats').on('click', '.cancel-cart-item', function () {
         sc.get($(this).parents('li:first').data('seatId')).click();
     });
-
+    var str = sessionStorage.obj;
     //已经被预约的座位
-    sc.get(['1_2', '4_1', '7_1', '7_7']).status('unavailable');
+    sc.get([str, '4_1', '7_1', '7_7']).status('unavailable');
 
 });
 
-function recalculateTotal(sc) {
+function recalculateTotal(csc) {
     var total = 0;
 
-    sc.find('selected').each(function () {
+    csc.find('selected').each(function () {
         total += this.data().price;
     });
 
     return total;
 }
-//提交
 
+//提交
 function update() {
 
-    var a = parseInt(num/8+1);
-    var b = num%8;
-    var str = a+"_"+b
-    alert(str);
-    sc.get(str).status('unavailable');
+    a = parseInt(num/8+1);
+    b = parseInt(num%8);
+    var str = a+"_"+b;
+    sessionStorage.obj = str;
     alert("选座成功");
+
 
 }

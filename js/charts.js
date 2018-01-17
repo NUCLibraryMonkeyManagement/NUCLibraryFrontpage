@@ -114,3 +114,129 @@ var myPieChart = new Chart(ctx, {
 
   }
 });
+
+var ctx3 = document.getElementById("myBarChart3");
+var myBarChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: ["5楼东", "5楼西", "6楼东", "6楼西", "7楼东", "7楼西"],
+        datasets: [{
+            label: "人数",
+            backgroundColor: "rgba(2,117,216,1)",
+            borderColor: "rgba(2,117,216,1)",
+            data: [120, 26, 105, 95, 40, 105],
+        }],
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 6
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 150,
+                    maxTicksLimit: 5
+                },
+                gridLines: {
+                    display: true
+                }
+            }],
+        },
+        legend: {
+            display: false
+        }
+    }
+});
+
+var ctx4 = document.getElementById("myBarChart4");
+var myBarChart4 = new Chart(ctx4, {
+    type: 'bar',
+    data: {
+        labels: ["5楼东", "5楼西", "6楼东", "6楼西", "7楼东", "7楼西"],
+        datasets: [{
+            label: "人数",
+            backgroundColor: "rgba(2,117,216,1)",
+            borderColor: "rgba(2,117,216,1)",
+            data: [111, 123, 123, 23, 130, 120],
+        }],
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 6
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 150,
+                    maxTicksLimit: 5
+                },
+                gridLines: {
+                    display: true
+                }
+            }],
+        },
+        legend: {
+            display: false
+        }
+    }
+});
+
+var ctx5 = document.getElementById("myBarChart5");
+var myBarChart5 = new Chart(ctx5, {
+    type: 'bar',
+    data: {
+        labels: ["5楼东", "5楼西", "6楼东", "6楼西", "7楼东", "7楼西"],
+        datasets: [{
+            label: "人数",
+            backgroundColor: "rgba(2,117,216,1)",
+            borderColor: "rgba(2,117,216,1)",
+            data: [100, 52, 125, 99, 23, 87],
+        }],
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 6
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 150,
+                    maxTicksLimit: 5
+                },
+                gridLines: {
+                    display: true
+                }
+            }],
+        },
+        legend: {
+            display: false
+        }
+    }
+});
