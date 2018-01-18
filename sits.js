@@ -86,7 +86,7 @@ $(document).ready(function() {
     sc.get([str, '4_1', '7_1', '7_7']).status('unavailable');
 
 });
-
+//确定只能选择一个座位
 function recalculateTotal(csc) {
     var total = 0;
 
@@ -105,6 +105,4 @@ function update() {
     var str = a+"_"+b;
     sessionStorage.obj = str;
     alert("选座成功");
-
-
 }
